@@ -22,6 +22,7 @@ sudo npm install npm@latest -g
 cd ../code
 cp .env.example .env
 php artisan key:generate
+php artisan passport:install
 php artisan migrate
 npm i
 npm run dev

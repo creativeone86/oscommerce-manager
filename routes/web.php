@@ -21,13 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/redirect', function() {
 	$query = http_build_query([
-		'client_id' => '3',
-		'redirect_uri' => 'http://manager.test/oauth/callback',
+		'client_id' => '5',
+		'redirect_uri' => 'http://osmanager.dev/oauth/callback',
 		'response_type' => 'code',
 		'scope' => '',
 	]);
 
-	return redirect('http://manager.test/oauth/authorize?' . $query);
+	return redirect('http://osmanager.dev/oauth/authorize?' . $query);
 });
 
 
@@ -36,12 +36,12 @@ Route::get('/oauth/callback', function() {
 	$http = new GuzzleHttp\Client;
 
 	if(request('code')) {
-		$response = $http->post('http://manager.test/oauth/token', [
+		$response = $http->post('http://osmanager.dev/oauth/token', [
 			'form_params' => [
 				'grant_type' => 'authorization_code',
-				'client_id' => '3',
-				'client_secret' => 'D9hNwHUBe9oegZeFoAOeTMeLlq9dbdmtTlF31yfj',
-				'redirect_uri' => 'http://manager.test/oauth/callback',
+				'client_id' => '5',
+				'client_secret' => 'wNF9rR9crcsBHGbe31MKF691mFcHk4ra9bsp8AKE',
+				'redirect_uri' => 'http://osmanager.dev/oauth/callback',
 				'code' => request('code'),
 			],
 		]);
